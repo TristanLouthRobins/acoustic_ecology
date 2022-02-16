@@ -1,4 +1,4 @@
-## LABEL AUDIO DATA FOR ANALYSIS
+## make_labels() function ~ LABEL AUDIO DATA FOR ANALYSIS
 ## Tristan Louth-Robins, 2021.
 ## See accompanying blog post here: https://wranglingintheantipodes.wordpress.com/2021/10/20/preparing-big-audio-files-for-analysis/
 
