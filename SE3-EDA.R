@@ -1,4 +1,5 @@
 library(rlang)
+library(gghighlight)
 
 # EDA script
 # Tristan Louth-Robins. 2021
