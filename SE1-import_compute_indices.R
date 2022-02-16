@@ -1,4 +1,4 @@
-# Script for computing acoustic using  soundecology package.
+# Script for computing acoustic indices using the soundecology package.
 # Tristan Louth-Robins. 2021-22
 ###################################
 
@@ -39,9 +39,9 @@ compute_indices <- function(index, site, batch_no, note){
 
 compute_indices(bi,"site",1,"(notes_here)")
 
-# Explore more with tweaking the parameters.
+# Note: Explore more with tweaking the parameters.
 
-### FOR NDSI ###
+### FOR NDSI ### PREVIOUS CODE - CURRENTLY NOT FOR USE (TO BE UPDATED AT A LATER STAGE.)
 
 import_ndsi_data <- function(path, dest, index, cores, a_min, a_max, b_min, b_max) {
   multiple_sounds(directory = path, 
