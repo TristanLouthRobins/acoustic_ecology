@@ -35,5 +35,5 @@ labels
 
 # Write tibble to tab (enter your directory path)
 # Check directory path: getwd()
-write_tsv(labels, "/Users/tristanlouth-robins/Documents/Documents - MacBook Pro/TLR Stuff/blog media/wrangling antipodes/8 - big audio/csv_to_txt/labels.txt",
+write_tsv(labels, "[your output path goes here.]",
           col_names = FALSE)
