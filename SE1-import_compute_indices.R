@@ -39,19 +39,6 @@ compute_indices <- function(index, site, batch_no, note){
 
 compute_indices(bi,"site",1,"(notes_here)")
 
-# Note: Explore more with tweaking the parameters.
-
-### FOR NDSI ### PREVIOUS CODE - CURRENTLY NOT FOR USE (TO BE UPDATED AT A LATER STAGE.)
-
-import_ndsi_data <- function(path, dest, index, cores, a_min, a_max, b_min, b_max) {
-  multiple_sounds(directory = path, 
-                  resultfile = dest,
-                  soundindex = index,
-                  no_cores = cores,
-                  anthro_min = a_min,
-                  anthro_max = a_max,
-                  bio_min = b_min,
-                  bio_max = b_max)
-}
+# Note: Explore more with tweaking the parameters specific to each of the acoustic index functions.
 
 ###############
