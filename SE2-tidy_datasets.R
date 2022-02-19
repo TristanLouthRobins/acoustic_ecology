@@ -14,14 +14,14 @@ library(tidyverse)
 
 # IMPORT THE CSV FOR ANALYSIS AND TIDY
 
-path.name <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/data_analysis/"
-project.name <- "parkside_batch3-"
+path.name <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/"
+project.name <- "parkside_batch4-"
 
 file.bi <- "bi.csv"
 file.aci <- "aci.csv"
 file.adi <- "adi.csv"
 file.aei <- "aei.csv"
-file.ndsi <- "ndsi_mid_anthro.csv"
+file.ndsi <- "ndsi.csv"
 
 file.path.bi <- paste(path.name,project.name,file.bi, sep = "")
 file.path.aci <- paste(path.name,project.name,file.aci, sep = "")
@@ -144,8 +144,8 @@ write_csv(all.data, file)
 #####################################
 
 # merge data sets
-one <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/data_analysis/parkside--merged.csv"
-two <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/data_analysis/parkside_batch3-all_data.csv"
+one <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/parkside--merged.csv"
+two <- "/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/parkside_batch4-all_data.csv"
 
 one <- read_csv(one)
 two <- read_csv(two)

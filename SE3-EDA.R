@@ -1,46 +1,30 @@
 library(rlang)
 library(gghighlight)
+library(ggplot2)
+library(ggbeeswarm)
 
 # EDA script
-# Tristan Louth-Robins. 2021
+# Tristan Louth-Robins. 2021-2022
+
+data <- read_csv("/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/parkside--merged.csv")
 
 # SUMMARY STATISTICS
 
-# Daily summary stats of data
+# Summary of daily stats
 
-daily.stats.bi <- mf_avif.data %>% 
+ndsi <- data %>% 
   group_by(date) %>% 
-  summarise(mean = round(mean(BI, rm.na = TRUE), 4),
-            sd = round(sd(BI), 4),
-            min = round(min(BI), 4),
-            max = round(max(BI), 4)
-            )
+  summarise(ndsi.mean = round(mean(NDSI, rm.na = TRUE), 4))
 
-daily.stats.aci <- mf_avif.data %>% 
-  group_by(date) %>% 
-  summarise(mean = round(mean(ACI, rm.na = TRUE), 4),
-            sd = round(sd(ACI), 4),
-            min = round(min(ACI), 4),
-            max = round(max(ACI), 4)
-  )
+ggplot(ndsi, aes(x = date, y = ndsi.mean)) +
+  geom_line() +
+  ylim(-1, 1)
 
-# Summarise entire period under observation
+###
+data.pivot <- data %>% 
+  pivot_longer(NDSI:ACI, names_to = "index_type")
 
-all.stats.bi <- daily.stats.bi %>% 
-  summarise(mean = mean(mean),
-            avg.sd = mean(sd),
-            min = min(min),
-            max = max(max))
-            
-all.stats.bi
 
-all.stats.aci <- daily.stats.aci %>% 
-  summarise(mean = mean(mean),
-            avg.sd = mean(sd),
-            min = min(min),
-            max = max(max))
-
-all.stats.aci 
 
 ###################################
 

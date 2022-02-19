@@ -10,7 +10,7 @@ library(warbleR) # for entropy, dominant frequency contours, etc. See: https://c
 
 getwd() # get working directory and paste as string below 
 dir <- setwd("/Users/tristanlouth-robins/data_science/acoustic_ecology_tests") # set working directory
-files <- "raw_data_x/" # File path for import of raw acoustic data:
+files <- "raw_data/" # File path for import of raw acoustic data:
 file.import <- paste(dir, files, sep = "/")
 
 bi <-  "bioacoustic_index"
@@ -37,7 +37,7 @@ compute_indices <- function(index, site, batch_no, note){
                   no_cores = "max")
 }
 
-compute_indices(bi,"site",1,"(notes_here)")
+compute_indices(aci,"parkside",4,"")
 
 # Note: Explore more with tweaking the parameters.
 
