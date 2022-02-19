@@ -8,17 +8,17 @@ library(ggbeeswarm)
 
 data <- read_csv("/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/parkside--merged.csv")
 
-# SUMMARY STATISTICS
+data$period <- ordered(data$period, levels = c("pre-dawn", "dawn", "morning", "midday", "afternoon", "dusk", "night"))
+data$season <- ordered(data$season, levels = c("Summer", "Autumn", "Winter", "Spring"))
 
-# Summary of daily stats
+###
 
-ndsi <- data %>% 
-  group_by(date) %>% 
-  summarise(ndsi.mean = round(mean(NDSI, rm.na = TRUE), 4))
+data <- data %>% 
+  filter(BI < 10)
 
-ggplot(ndsi, aes(x = date, y = ndsi.mean)) +
-  geom_line() +
-  ylim(-1, 1)
+ggplot(data, aes(x = BI, y = NDSI)) +
+  geom_point(alpha = 0.7) +
+  facet_wrap(~period)
 
 ###
 data.pivot <- data %>% 
