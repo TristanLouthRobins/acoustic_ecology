@@ -1,3 +1,4 @@
+library(tidyverse)
 library(rlang)
 library(gghighlight)
 library(ggplot2)
@@ -6,25 +7,70 @@ library(ggbeeswarm)
 # EDA script
 # Tristan Louth-Robins. 2021-2022
 
-data <- read_csv("/Users/tristanlouth-robins/data_science/acoustic_ecology_tests/results/parkside--merged.csv")
+data <- read_csv("/Users/tristanlouth-robins/Documents/Documents - MacBook Pro/R data and projects/acoustic_ecology_tests/acoustic_ecology/data/parkside_summer.csv")
 
 data$period <- ordered(data$period, levels = c("pre-dawn", "dawn", "morning", "midday", "afternoon", "dusk", "night"))
 data$season <- ordered(data$season, levels = c("Summer", "Autumn", "Winter", "Spring"))
 
 ###
 
+data %>% 
+  filter(max_temp > 40)
+
 data <- data %>% 
   filter(BI < 10)
 
-ggplot(data, aes(x = BI, y = NDSI)) +
+data_BI.summary <- data %>% 
+  group_by(date) %>% 
+  summarise(mean.BI = mean(BI), max_temp = mean(max_temp)) 
+
+data_ACI.summary <- data %>% 
+  group_by(date) %>% 
+  summarise(mean.ACI = mean(ACI), max_temp = mean(max_temp)) 
+
+data_ADI.summary <- data %>% 
+  group_by(date) %>% 
+  summarise(mean.ADI = mean(ADI), max_temp = mean(max_temp)) 
+
+data_AEI.summary <- data %>% 
+  group_by(date) %>% 
+  summarise(mean.AEI = mean(AEI), max_temp = mean(max_temp)) 
+
+data_NDSI.summary <- data %>% 
+  group_by(date) %>% 
+  summarise(mean.NDSI = mean(NDSI), max_temp = mean(max_temp)) 
+
+#
+
+ggplot(data_ADI.summary, aes(x = mean.ADI, y = max_temp)) +
   geom_point(alpha = 0.7) +
-  facet_wrap(~period)
+  geom_smooth()
+
+cor(data_ADI.summary$mean.ADI, data_ADI.summary$max_temp)
+
+ggplot(data_AEI.summary, aes(x = mean.AEI, y = max_temp)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth()
+
+cor(data_AEI.summary$mean.AEI, data_AEI.summary$max_temp)
+
+ggplot(data_ADI.summary, aes(x = mean.ADI, y = max_temp)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth()
+
+cor(data_ADI.summary$mean.ADI, data_ADI.summary$max_temp)
+
+ggplot(data_NDSI.summary, aes(x = mean.NDSI, y = max_temp)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth()
+
+cor(data_NDSI.summary$mean.NDSI, data_NDSI.summary$max_temp) 
 
 ###
 data.pivot <- data %>% 
   pivot_longer(NDSI:ACI, names_to = "index_type")
 
-
+data.pivot
 
 ###################################
 
