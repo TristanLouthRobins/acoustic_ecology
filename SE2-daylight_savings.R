@@ -1,3 +1,9 @@
+# Sample script (v.basic) for dealing with SA daylight savings transition (October)
+# Tristan Louth-Robins. 2021-22
+###########################################################################################
+# To develop all-round script/function to handle October and April periods at a later date.
+###########################################################################################
+
 library(chron)
 library(forcats)
 library(stringr)
