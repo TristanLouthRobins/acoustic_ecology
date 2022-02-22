@@ -1,11 +1,11 @@
+# Sketches for EDA. To rework into coherent script at a later stage. Everything from Line 75 onwards deals with an older project and is only retained for reference to the current project and how EDA might be best realised.
+# Tristan Louth-Robins. 2021-22
+
 library(tidyverse)
 library(rlang)
 library(gghighlight)
 library(ggplot2)
 library(ggbeeswarm)
-
-# EDA script
-# Tristan Louth-Robins. 2021-2022
 
 data <- read_csv("/Users/tristanlouth-robins/Documents/Documents - MacBook Pro/R data and projects/acoustic_ecology_tests/acoustic_ecology/data/parkside_summer.csv")
 
