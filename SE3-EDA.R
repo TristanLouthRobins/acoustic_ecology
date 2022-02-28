@@ -50,7 +50,7 @@ cor(data_ADI.summary$mean.ADI, data_ADI.summary$max_temp)
 
 ggplot(data_AEI.summary, aes(x = mean.AEI, y = max_temp)) +
   geom_point(alpha = 0.7) +
-  geom_smooth()
+  geom_smooth(method = "lm")
 
 cor(data_AEI.summary$mean.AEI, data_AEI.summary$max_temp)
 
